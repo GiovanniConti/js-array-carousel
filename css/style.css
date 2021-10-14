@@ -10,13 +10,33 @@
     display: flex;
 }
 
-.container-img-display{
+.container-img{
     width: 92%;
+    position: relative;
 }
 
 .img{
     width: 100%;
+    max-height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.title{
+    color: white;
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+}
+
+.news{
+    color: white;
+    font-size: 1.7rem;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
 }
 
 .nav{
