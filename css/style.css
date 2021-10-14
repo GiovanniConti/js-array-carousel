@@ -70,6 +70,16 @@
 
 .img-nav{
     width: 100%;
+    opacity: 0.7;
+}
+
+.img-nav:hover{
+    opacity: 1;
+}
+
+.active-nav{
+    opacity: 1;
+    border: 2px solid white;
 }
 
 .chevron{
@@ -78,10 +88,16 @@
     width: 2rem;
     height: 2rem;
     color: gray;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255);
+    opacity: 0.6;
     border-radius: 50%;
     left: 50%;
     text-align: center;
+    z-index: 1;
+}
+
+.chevron:hover{
+    opacity: 1;
 }
 
 .chevron > i{

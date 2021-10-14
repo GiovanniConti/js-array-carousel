@@ -34,15 +34,16 @@ for (let i = 0; i < items.length; i++) {
     const currentTitle = title[i];
     const currentNews = text[i];
 
-    console.log(currentItem);
-    console.log(currentTitle);
-    console.log(currentNews);
+    // console.log(currentItem);
+    // console.log(currentTitle);
+    // console.log(currentNews);
 
     let classActiveImg = "";
     let classActiveNav = "";
 
     if(i === currentIndex){
         classActiveImg = "active";
+        classActiveNav = "active-nav";
         
     }
     
@@ -57,8 +58,64 @@ const chevronDown = document.querySelector(".chevron-down");
 
 chevronUp.addEventListener("click", function(){
     const activeImage = containerImg.querySelector(".active");
+    const activeOverlay = containerOverlay.querySelectorAll(".active");
+    const activeNav = nav.querySelector(".active-nav")
+
+    activeImage.classList.remove("active");
+    activeOverlay[0].classList.remove("active");
+    activeOverlay[1].classList.remove("active");
+    activeNav.classList.remove("active-nav");
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex = items.length - 1;
+    }
+
+    const newActiveImg = containerImg.querySelector(`img:nth-child(${currentIndex + 1})`);
+    newActiveImg.classList.add("active");
+
+    const titleTags = containerOverlay.querySelectorAll(".title");
+    const newsTags = containerOverlay.querySelectorAll(".news");
+    const newActiveTitle = titleTags[currentIndex]
+    const newActiveNews = newsTags[currentIndex]
+    newActiveTitle.classList.add("active");
+    newActiveNews.classList.add("active");
+
+    const navTags = nav.querySelectorAll("img");
+    const newActiveNav = navTags[currentIndex];
+    newActiveNav.classList.add("active-nav");
+    
 });
 
 chevronDown.addEventListener("click", function(){
+    const activeImage = containerImg.querySelector(".active");
+    const activeOverlay = containerOverlay.querySelectorAll(".active");
+    const activeNav = nav.querySelector(".active-nav")
+
+    activeImage.classList.remove("active");
+    activeOverlay[0].classList.remove("active");
+    activeOverlay[1].classList.remove("active");
+    activeNav.classList.remove("active-nav");
+
+    currentIndex++;
+
+    if(currentIndex == items.length){
+        currentIndex = 0;
+    }
+    
+    const newActiveImg = containerImg.querySelector(`img:nth-child(${currentIndex + 1})`);
+    newActiveImg.classList.add("active");
+
+    const titleTags = containerOverlay.querySelectorAll(".title");
+    const newsTags = containerOverlay.querySelectorAll(".news");
+    const newActiveTitle = titleTags[currentIndex]
+    const newActiveNews = newsTags[currentIndex]
+    newActiveTitle.classList.add("active");
+    newActiveNews.classList.add("active");
+
+    const navTags = nav.querySelectorAll("img");
+    const newActiveNav = navTags[currentIndex];
+    newActiveNav.classList.add("active-nav");
 
 });
